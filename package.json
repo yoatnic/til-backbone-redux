@@ -1,0 +1,59 @@
+{
+  "name": "bb",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --mode development",
+    "build": "webpack --mode production",
+    "lint": "eslint src",
+    "flow": "flow"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoatnic/til-backbone-redux.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yoatnic/til-backbone-redux/issues"
+  },
+  "homepage": "https://github.com/yoatnic/til-backbone-redux#readme",
+  "dependencies": {
+    "babel-eslint": "^8.2.2",
+    "babel-polyfill": "^6.26.0",
+    "backbone": "^1.3.3",
+    "backbone.marionette": "^3.5.1",
+    "jquery": "^3.3.1",
+    "redux": "^3.7.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^components/(.+)$": "<rootDir>/src/components/$1",
+      "^actions/(.+)$": "<rootDir>/src/actions/$1",
+      "^containers/(.+)$": "<rootDir>/src/containers/$1",
+      "^reducers/(.+)$": "<rootDir>/src/reducers/$1"
+    }
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "eslint": "^4.18.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "flow-bin": "^0.66.0",
+    "prettier": "1.9.2",
+    "redux-devtools": "^3.4.1",
+    "sinon": "^4.4.2",
+    "style-loader": "^0.19.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.9",
+    "webpack-dev-server": "^3.0.0"
+  }
+}
