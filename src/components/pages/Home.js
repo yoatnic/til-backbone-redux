@@ -1,9 +1,9 @@
 import Marionette from "backbone.marionette";
-import MessagesView from "../molcules/MessagesView";
-import MessagesCollection from "../molcules/MessagesCollection";
+import MessagesView from "../molcules/Messages/MessagesView";
+import MessagesCollection from "../molcules/Messages/MessagesCollection";
 
-import PostFormView from "../molcules/PostFormView";
-import PostModel from "../molcules/PostModel";
+import PostFormView from "../molcules/Post/PostFormView";
+import PostModel from "../molcules/Post/PostModel";
 
 import { postMessage } from "../../actions/PostMessage";
 

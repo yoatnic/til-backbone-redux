@@ -1,5 +1,5 @@
 import Backbone from "backbone";
-import MessageModel from "../atoms/MessageModel";
+import MessageModel from "../../atoms/Message/MessageModel";
 
 class MessagesCollection extends Backbone.Collection {
   get model() {

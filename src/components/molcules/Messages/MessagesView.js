@@ -1,5 +1,5 @@
 import Marionette from "backbone.marionette";
-import MessageView from "../atoms/MessageView";
+import MessageView from "../../atoms/Message/MessageView";
 
 class MessagesView extends Marionette.CollectionView {
   buildChildView(child, ChildViewClass, childViewOptions) {
