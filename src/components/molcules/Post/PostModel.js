@@ -1,7 +1,6 @@
 import Backbone from "backbone";
-import { postMessage } from "../../../actions/PostMessage";
+import { postMessage } from "../../../actions/MessageAction";
 
-let id = 1;
 class PostModel extends Backbone.Model {
   initialize(attrs, { store }) {
     this._store = store;
@@ -10,11 +9,9 @@ class PostModel extends Backbone.Model {
   post(message) {
     this._store.dispatch(
       postMessage({
-        id,
         message
       })
     );
-    id++;
   }
 }
 

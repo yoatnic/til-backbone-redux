@@ -1,6 +1,6 @@
 import Marionette from "backbone.marionette";
 import Home from "./components/pages/Home";
-import { store } from "./Store";
+import store from "./Store";
 
 class App extends Marionette.Application {
   get region() {

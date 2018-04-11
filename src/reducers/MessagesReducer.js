@@ -1,25 +1,51 @@
 //@flow
-import { POST_MESSAGE } from "../actions/PostMessage";
-import type { Message, MessageAction } from "../actions/PostMessage";
+import {
+  POST_MESSAGE,
+  INITIALIZE_MESSAGES_ASYNC
+} from "../actions/MessageAction";
+import type {
+  Message,
+  InitializeAction,
+  InitializeAsyncAction,
+  PostMessageAction
+} from "../actions/MessageAction";
+
+type UniqueMessage = {
+  id: number,
+  mesasge: string
+};
 
 export type State = {
-  messages: Array<Message>
+  messages: Array<Message> | Array<UniqueMessage>
 };
 
 const initinalState: State = {
   messages: []
 };
 
+const createId = ((): Function => {
+  let id: number = 1;
+  return (): number => id++;
+})();
+
 export const messagesReducer = (
   state: State = initinalState,
-  action: MessageAction
+  action: InitializeAction | InitializeAsyncAction | PostMessageAction
 ): State => {
   switch (action.type) {
   case POST_MESSAGE:
-    const newState: State = Object.assign({}, state, {
-      messages: [...state.messages, action.message]
+    return Object.assign({}, state, {
+      messages: [
+        ...state.messages,
+        Object.assign({ id: createId() }, action.message)
+      ]
     });
-    return newState;
+  case INITIALIZE_MESSAGES_ASYNC:
+    return Object.assign({}, state, {
+      messages: action.messages.map(msg => {
+        return Object.assign({ id: createId() }, { message: msg.message });
+      })
+    });
   default:
     return state;
   }

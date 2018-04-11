@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: ["babel-polyfill", "./src/index.js"],
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "public"),
@@ -10,7 +10,19 @@ module.exports = {
   devServer: {
     contentBase: "public/",
     historyApiFallback: true,
-    port: 8080
+    port: 8080,
+    before(app) {
+      const bodyParser = require("body-parser");
+      app.use(bodyParser());
+      let db = [];
+      app.get("/messages", (req, res) => {
+        res.json(db);
+      });
+      app.post("/messages", (req, res) => {
+        db = req.body;
+        res.sendStatus(200);
+      });
+    }
   },
   module: {
     rules: [

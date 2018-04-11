@@ -5,7 +5,7 @@ import MessagesCollection from "../molcules/Messages/MessagesCollection";
 import PostFormView from "../molcules/Post/PostFormView";
 import PostModel from "../molcules/Post/PostModel";
 
-import { postMessage } from "../../actions/PostMessage";
+import { postMessage } from "../../actions/MessageAction";
 
 class Home extends Marionette.View {
   template() {
